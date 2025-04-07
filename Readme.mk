@@ -14,7 +14,7 @@ Un icono de bandeja para cambiar rápidamente entre temas diurnos/nocturnos en X
 python3-gi libappindicator3-dev xfconf libnotify-bin
 
 
-##Instalación
+## Instalación
 1.Clona o descarga los archivos del proyecto:
 git clone https://github.com/tu-usuario/tray-theme-switcher.git
 cd tray-theme-switcher
