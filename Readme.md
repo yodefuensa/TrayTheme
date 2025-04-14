@@ -19,8 +19,9 @@ python3-gi libappindicator3-dev xfconf libnotify-bin
 git clone https://github.com/tu-usuario/tray-theme-switcher.git
 cd tray-theme-switcher
 
-2.Crea los directorios de configuración:
-mkdir -p ~/.config/tray-theme/{dia,noche}
+~~2.Crea los directorios de configuración:~~ 
+~~mkdir -p ~/.config/tray-theme/{dia,noche}~~
+Es automatico al correr por primera vez el programa.
 
 3.Haz ejecutables los scripts:
 chmod +x Theme.py trayIcon.py

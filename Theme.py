@@ -7,13 +7,15 @@ home = os.path.expanduser("~")
 main_folder = os.path.join(home, ".config/tray-theme")
 
 def crear_directorios():
-    subdirs = ["dia", "noche"]
-    try:
-        for subdir in subdirs:
-            path = os.path.join(main_folder, subdir)
-            os.makedirs(path, exist_ok=True)
-    except Exception as e:
-        print(f"Error creando directorios: {e}")
+    if not os.path.exists(main_folder):
+        subprocess.run (["notify-send", "No existen configuraciones por favor guarde los temas!!"])
+        subdirs = ["dia", "noche"]
+        try:
+            for subdir in subdirs:
+                path = os.path.join(main_folder, subdir)
+                os.makedirs(path, exist_ok=True)
+        except Exception as e:
+            print(f"Error creando directorios: {e}")
 
 def guardar_tema(tema):
     configuraciones = [
@@ -130,9 +132,9 @@ def _recargar_escritorio():
     except Exception as e:
         print(f"Error recargando escritorio: {e}")
 
-if __name__ == "__main__":
-    if not os.path.exists(main_folder):
-        crear_directorios()
+# f __name__ == "__main__":
+   #  if not os.path.exists(main_folder):
+   #      crear_directorios()
     
     # Ejemplo de uso:
     # GuardarTema("dia")

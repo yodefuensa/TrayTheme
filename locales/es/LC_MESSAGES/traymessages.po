@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Tema Diurno"
+msgstr "Tema Diurno"
+
+msgid "Tema Nocturno"
+msgstr "Tema Nocturno"
+
+msgid "Guardar Tema Actual"
+msgstr "Guardar Tema Actual"
+
+msgid "Salir"
+msgstr "Salir"
+
+msgid "☀️ Tema guardado"
+msgstr "☀️ Tema guardado"
+
+msgid "🌙 Tema guardado"
+msgstr "🌙 Tema guardado"
