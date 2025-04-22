@@ -32,3 +32,9 @@ chmod +x Theme.py trayIcon.py
 
 Ah creditos a https://github.com/liamsgotgenes/xfce4-theme-switcher
 que es de donde he sacado la gestión de los configs, y a DeepSeek, DeepSeek ha ayudado mucho
+
+y el icono de la bandeja:
+<a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by xnimrodx - Flaticon</a>
+
+
+![sig el gif no va](https://github.com/yodefuensa/TrayTheme/blob/main/doc_2025-04-07_18-43-06.gif)
