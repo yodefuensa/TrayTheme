@@ -1,40 +1,39 @@
+
 # Tray Theme Switcher para XFCE
 
-Un icono de bandeja para cambiar rápidamente entre temas diurnos/nocturnos en XFCE, con capacidad de guardar configuraciones personalizadas.
+A tray icon to quickly switch between day/night themes in XFCE, with the ability to save custom configurations.
+Features
 
-## Características
-- Cambio rápido entre dos temas preconfigurados
-- Guardado de la configuración actual del tema
-- Notificaciones visuales al guardar/cambiar temas
+## Features
+    Quick switching between two preconfigured themes
+    Saving the current theme configuration
+    Visual notifications when saving/switching themes
 
+## Dependencies
 
-## Dependencias
-- Entorno de escritorio XFCE
-- Paquetes necesarios:
-python3-gi libappindicator3-dev xfconf libnotify-bin
+    XFCE desktop environment
+    Required packages: python3-gi libappindicator3-dev xfconf libnotify-bin
 
+## Installation
 
-## Instalación
-1.Clona o descarga los archivos del proyecto:
-git clone https://github.com/tu-usuario/tray-theme-switcher.git
+1.Clone or download the project files: 
+git clone https://github.com/tu-usuario/tray-theme-switcher.git 
 cd tray-theme-switcher
 
-~~2.Crea los directorios de configuración:~~ 
-~~mkdir -p ~/.config/tray-theme/{dia,noche}~~
-Es automatico al correr por primera vez el programa.
+~~2. Create the configuration directories:~~
+~~mkdir -p ~/.config/tray-theme/{day,night}~~
+This is automatic when running the program for the first time.
 
-3.Haz ejecutables los scripts:
+3.Make the scripts executable:
 chmod +x Theme.py trayIcon.py
 
-4.Ejecuta el icono de bandeja:
+4.Run the tray icon:
 ./trayIcon.py
 
+Ah, credits to https://github.com/liamsgotgenes/xfce4-theme-switcher
+which is where I got the configuration management from, and to DeepSeek, DeepSeek helped a lot.
 
-Ah creditos a https://github.com/liamsgotgenes/xfce4-theme-switcher
-que es de donde he sacado la gestión de los configs, y a DeepSeek, DeepSeek ha ayudado mucho
-
-y el icono de la bandeja:
+and the tray icon:
 <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by xnimrodx - Flaticon</a>
 
-
-![sig el gif no va](https://github.com/yodefuensa/TrayTheme/blob/main/doc_2025-04-07_18-43-06.gif)
+![](https://github.com/yodefuensa/TrayTheme/blob/main/doc_2025-04-07_18-43-06.gif)

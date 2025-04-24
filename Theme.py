@@ -3,32 +3,32 @@ import os
 import subprocess
 
 # Configuración principal
-home = os.path.expanduser("~")
-main_folder = os.path.join(home, ".config/tray-theme")
+HOME = os.path.expanduser("~")
+MAIN_FOLDER = os.path.join(HOME, ".config/tray-theme")
 
-def crear_directorios():
-    if not os.path.exists(main_folder):
+def create_directories():
+    if not os.path.exists(MAIN_FOLDER):
         subprocess.run (["notify-send", "No existen configuraciones por favor guarde los temas!!"])
         subdirs = ["dia", "noche"]
         try:
             for subdir in subdirs:
-                path = os.path.join(main_folder, subdir)
+                path = os.path.join(MAIN_FOLDER, subdir)
                 os.makedirs(path, exist_ok=True)
         except Exception as e:
             print(f"Error creando directorios: {e}")
 
-def guardar_tema(tema):
-    configuraciones = [
+def save_theme(tema):
+    configs = [
         ("xsettings", "xsettings.conf"),
         ("xfwm4", "xfwm4.conf"),
         ("xfce4-desktop", "xfce4-desktop.conf"),
     ]
-    tema_path = os.path.join(main_folder, tema)
+    tema_path = os.path.join(MAIN_FOLDER, tema)
     
     try:
         os.makedirs(tema_path, exist_ok=True)
         
-        for config, filename in configuraciones:
+        for config, filename in configs:
             file_path = os.path.join(tema_path, filename)
             print(f"\nGUARDANDO {config} PARA TEMA '{tema}' EN: {file_path}")
             
@@ -44,23 +44,23 @@ def guardar_tema(tema):
     except Exception as e:
         print(f"Error guardando tema: {e}")
 
-def cargar_tema(tema):
-    tema_path = os.path.join(main_folder, tema)
+def load_theme(tema):
+    tema_path = os.path.join(MAIN_FOLDER, tema)
     
     if not os.path.exists(tema_path):
         print(f"❌ Tema '{tema}' no encontrado")
         return
     
     try:
-        _cargar_config_generica(tema_path, "xsettings")
-        _cargar_config_generica(tema_path, "xfwm4")
-        _cargar_config_generica(tema_path, "xfce4-desktop")
-        _recargar_escritorio()
+        _load_generic_config(tema_path, "xsettings")
+        _load_generic_config(tema_path, "xfwm4")
+        _load_generic_config(tema_path, "xfce4-desktop")
+        _reload_desktop()
         
     except Exception as e:
         print(f"Error cargando tema: {e}")
 
-def _cargar_config_generica(tema_path, canal):
+def _load_generic_config(tema_path, canal):
     """Carga configuración para cualquier canal"""
     archivo = os.path.join(tema_path, f"{canal}.conf")
     print(f"\nCARGANDO {canal.upper()} DESDE: {archivo}")
@@ -85,7 +85,7 @@ def _cargar_config_generica(tema_path, canal):
                     prop, valor = partes
                 
                 valor = valor.strip('"\'')
-                tipo = _inferir_tipo(valor, prop)
+                tipo = _infer_type(valor, prop)
                 
                 cmd = [
                     "xfconf-query", "-c", canal,
@@ -100,7 +100,7 @@ def _cargar_config_generica(tema_path, canal):
     except Exception as e:
         print(f"Error cargando {canal}: {e}")
 
-def _inferir_tipo(valor, prop):
+def _infer_type(valor, prop):
     """Infiere el tipo de dato con soporte para propiedades especiales"""
     valor = valor.strip('"\'').lower()
     tipo_especial = {
@@ -123,7 +123,7 @@ def _inferir_tipo(valor, prop):
         return 'double'
     return 'string'
 
-def _recargar_escritorio():
+def _reload_desktop():
     """Recarga la configuración del escritorio"""
     print("\n🔄 Recargando escritorio...")
     try:
@@ -131,11 +131,3 @@ def _recargar_escritorio():
         print("✅ Recarga completada")
     except Exception as e:
         print(f"Error recargando escritorio: {e}")
-
-# f __name__ == "__main__":
-   #  if not os.path.exists(main_folder):
-   #      crear_directorios()
-    
-    # Ejemplo de uso:
-    # GuardarTema("dia")
-    # CargarTema("noche")
