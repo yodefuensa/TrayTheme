@@ -12,7 +12,7 @@ Features
 ## Dependencies
 
     XFCE desktop environment
-    Required packages: python3-gi libappindicator3-dev xfconf libnotify-bin
+    Required packages: python3-gi libappindicator3-dev xfconf libnotify-bin python-geocoder
 
 ## Installation
 

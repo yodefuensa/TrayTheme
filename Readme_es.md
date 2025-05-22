@@ -11,7 +11,7 @@ Un icono de bandeja para cambiar rápidamente entre temas diurnos/nocturnos en X
 ## Dependencias
 - Entorno de escritorio XFCE
 - Paquetes necesarios:
-python3-gi libappindicator3-dev xfconf libnotify-bin
+python3-gi libappindicator3-dev xfconf libnotify-bin python-geocoder
 
 
 ## Instalación
