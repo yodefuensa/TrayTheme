@@ -127,16 +127,17 @@ class SystemTrayIcon:
             subprocess.run(["notify-send", _("🌓 Tema automático DESACTIVADO")])
 
     def _schedule_initial_event(self):
-        """Programa el primer evento al iniciar"""
+        """Programa el primer evento al iniciar y aplica el tema actual"""
         now = datetime.datetime.now()
         sunrise = datetime.datetime.strptime(sunjob.get_sunrise_local(), "%H:%M").time()
         sunset = datetime.datetime.strptime(sunjob.get_sunset_local(), "%H:%M").time()
         
-        if now.time() < sunrise:
-            next_event = "sunrise"
-        elif now.time() < sunset:
+        # Determinar el tema actual basado en la hora
+        if sunrise <= now.time() < sunset:
+            self.set_day_theme(None)
             next_event = "sunset"
         else:
+            self.set_night_theme(None)
             next_event = "sunrise"
         
         self._schedule_event(next_event)
